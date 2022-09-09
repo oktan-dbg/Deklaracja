@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.deklaracja_lbl = new System.Windows.Forms.Label();
             this.uczen_dane_grpbox = new System.Windows.Forms.GroupBox();
             this.pesel_inp = new System.Windows.Forms.MaskedTextBox();
@@ -112,6 +113,7 @@
             this.pesel_inp.Name = "pesel_inp";
             this.pesel_inp.Size = new System.Drawing.Size(125, 27);
             this.pesel_inp.TabIndex = 10;
+            this.pesel_inp.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.pesel_inp_MaskInputRejected);
             // 
             // ur_masked_inp
             // 
@@ -120,6 +122,7 @@
             this.ur_masked_inp.Name = "ur_masked_inp";
             this.ur_masked_inp.Size = new System.Drawing.Size(114, 27);
             this.ur_masked_inp.TabIndex = 9;
+            this.ur_masked_inp.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.ur_masked_inp_MaskInputRejected);
             // 
             // miejsce_ur_inp
             // 
@@ -209,10 +212,11 @@
             // kod_mskd_input
             // 
             this.kod_mskd_input.Location = new System.Drawing.Point(231, 92);
-            this.kod_mskd_input.Mask = "00-0000";
+            this.kod_mskd_input.Mask = "00-000";
             this.kod_mskd_input.Name = "kod_mskd_input";
             this.kod_mskd_input.Size = new System.Drawing.Size(105, 27);
             this.kod_mskd_input.TabIndex = 27;
+            this.kod_mskd_input.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.kod_mskd_input_MaskInputRejected);
             // 
             // mail_inp
             // 
@@ -220,6 +224,7 @@
             this.mail_inp.Name = "mail_inp";
             this.mail_inp.Size = new System.Drawing.Size(143, 27);
             this.mail_inp.TabIndex = 10;
+            this.mail_inp.TextChanged += new System.EventHandler(this.mail_inp_TextChanged);
             // 
             // mail_lbl
             // 
@@ -253,6 +258,7 @@
             this.telefon_inp.Name = "telefon_inp";
             this.telefon_inp.Size = new System.Drawing.Size(148, 27);
             this.telefon_inp.TabIndex = 6;
+            this.telefon_inp.TextChanged += new System.EventHandler(this.telefon_inp_TextChanged);
             // 
             // ulica_inp
             // 
@@ -506,6 +512,7 @@
             this.Controls.Add(this.adres_kor_grpbox);
             this.Controls.Add(this.uczen_dane_grpbox);
             this.Controls.Add(this.deklaracja_lbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

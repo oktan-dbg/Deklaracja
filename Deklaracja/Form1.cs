@@ -37,6 +37,7 @@ namespace Deklaracja
 
         private void nazwisko_inp_TextChanged(object sender, EventArgs e)
         {
+            nazwisko_inp.BackColor = Color.White;
             TextBox currentContainer = ((TextBox)sender);
             int caretPosition = currentContainer.SelectionStart;
 
@@ -46,6 +47,7 @@ namespace Deklaracja
 
         private void imie_inp_TextChanged(object sender, EventArgs e)
         {
+            imie_inp.BackColor = Color.White;
             TextBox currentContainer = ((TextBox)sender);
             int caretPosition = currentContainer.SelectionStart;
 
@@ -55,6 +57,7 @@ namespace Deklaracja
 
         private void miejsce_ur_inp_TextChanged(object sender, EventArgs e)
         {
+            miejsce_ur_inp.BackColor = Color.White;
             TextBox currentContainer = ((TextBox)sender);
             int caretPosition = currentContainer.SelectionStart;
 
@@ -64,6 +67,7 @@ namespace Deklaracja
 
         private void miejsowosc_inp_TextChanged(object sender, EventArgs e)
         {
+            miejsowosc_inp.BackColor = Color.White;
             TextBox currentContainer = ((TextBox)sender);
             int caretPosition = currentContainer.SelectionStart;
 
@@ -73,6 +77,7 @@ namespace Deklaracja
 
         private void poczta_inp_TextChanged(object sender, EventArgs e)
         {
+            poczta_inp.BackColor = Color.White;
             TextBox currentContainer = ((TextBox)sender);
             int caretPosition = currentContainer.SelectionStart;
 
@@ -82,7 +87,7 @@ namespace Deklaracja
 
         private void ulica_inp_TextChanged(object sender, EventArgs e)
         {
-            
+            ulica_inp.BackColor = Color.White;
         }
 
         private void dec_cmbbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,138 +131,16 @@ namespace Deklaracja
             }
         }
 
-        private void zatwierdz_btn_Click(object sender, EventArgs e)
-        {
-            //imie
-            if(String.IsNullOrEmpty(imie_inp.Text))
-            {
-                imie_inp.BackColor=Color.Red;
-            }
-            else
-            {
-                imie_inp.BackColor=Color.Green;
-            }
-            //nazwisko
-            if (String.IsNullOrEmpty(nazwisko_inp.Text))
-            {
-                nazwisko_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                nazwisko_inp.BackColor = Color.Green;
-            }
-            //data
-            if (String.IsNullOrEmpty(ur_masked_inp.Text) && ur_masked_inp.MaskFull==false)
-            {
-                ur_masked_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                ur_masked_inp.BackColor = Color.Green;
-            }
-            if (String.IsNullOrEmpty(poczta_inp.Text))
-            {
-                poczta_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                poczta_inp.BackColor = Color.Green;
-            }
-            //numer pesel
-            if (String.IsNullOrEmpty(pesel_inp.Text))
-            {
-                pesel_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                if (imie_inp.Text.EndsWith("a"))
-                {
-                    int ostatnie = Convert.ToInt32(pesel_inp.ToString().Substring(2, 2));
-                    if (ostatnie % 2 == 0)
-                    {
-                        pesel_inp.BackColor = Color.Green;
-                    }
-                    else
-                    {
-                        pesel_inp.BackColor = Color.Red;
-                    }
-                        
-                }
-                else
-                {
-                    int ostatnie = Convert.ToInt32(pesel_inp.ToString().Substring(2, 2));
-                    if (ostatnie % 2 == 0)
-                    {
-                        pesel_inp.BackColor = Color.Red;
-                    }
-                    else
-                    {
-                        pesel_inp.BackColor = Color.Green;
-                    }
-                }
-                pesel_inp.BackColor = Color.Green;
-            }
-            //miejscowosc
-            if (String.IsNullOrEmpty(miejsowosc_inp.Text))
-            {
-                miejsowosc_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                miejsowosc_inp.BackColor = Color.Green;
-            }
-            //ulica i numer
-            if (String.IsNullOrEmpty(ulica_inp.Text))
-            {
-                ulica_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                ulica_inp.BackColor = Color.Green;
-            }
-            //kod pocztowy
-            if (String.IsNullOrEmpty(kod_mskd_input.Text))
-            {
-                kod_mskd_input.BackColor = Color.Red;
-            }
-            else
-            {
-                kod_mskd_input.BackColor = Color.Green;
-            }
-            if (String.IsNullOrEmpty(poczta_inp.Text))
-            {
-                poczta_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                poczta_inp.BackColor = Color.Green;
-            }
-            //nr telefonu
-            if (String.IsNullOrEmpty(telefon_inp.Text))
-            {
-                telefon_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                telefon_inp.BackColor = Color.Green;
-            }
-            //mail
-            if (String.IsNullOrEmpty(mail_inp.Text) && !mail_inp.Text.Contains("@"))
-            {
-                mail_inp.BackColor = Color.Red;
-            }
-            else
-            {
-                mail_inp.BackColor = Color.Green;
-            }
-        }
+        
 
         private void zatwierdz_btn_Click_1(object sender, EventArgs e)
         {
+            var puste = 0;
             //imie
             if (String.IsNullOrEmpty(imie_inp.Text))
             {
                 imie_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -267,6 +150,7 @@ namespace Deklaracja
             if (String.IsNullOrEmpty(nazwisko_inp.Text))
             {
                 nazwisko_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -276,6 +160,7 @@ namespace Deklaracja
             if ( ur_masked_inp.MaskFull == false)
             {
                 ur_masked_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -284,6 +169,7 @@ namespace Deklaracja
             if (String.IsNullOrEmpty(miejsce_ur_inp.Text))
             {
                 miejsce_ur_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -293,12 +179,13 @@ namespace Deklaracja
             if (String.IsNullOrEmpty(pesel_inp.Text))
             {
                 pesel_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
-                if (imie_inp.Text.EndsWith("a")== true)
+                if (imie_inp.Text.EndsWith("A")== true)
                 {
-                    int ostatnie = Convert.ToInt32(pesel_inp.ToString().Substring(2, 2));
+                    int ostatnie = Convert.ToInt32(pesel_inp.Text.ToString().Substring(9, 1));
                     if (ostatnie % 2 == 0)
                     {
                         pesel_inp.BackColor = Color.Green;
@@ -306,15 +193,17 @@ namespace Deklaracja
                     else
                     {
                         pesel_inp.BackColor = Color.Red;
+                        puste++;
                     }
 
                 }
                 else
                 {
-                    int ostatnie = Convert.ToInt32(pesel_inp.Text.ToString().Substring(2, 2));
+                    int ostatnie = Convert.ToInt32(pesel_inp.Text.ToString().Substring(9, 1));
                     if (ostatnie % 2 == 0)
                     {
                         pesel_inp.BackColor = Color.Red;
+                        puste++;
                     }
                     else
                     {
@@ -327,6 +216,7 @@ namespace Deklaracja
             if (String.IsNullOrEmpty(miejsowosc_inp.Text))
             {
                 miejsowosc_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -336,6 +226,7 @@ namespace Deklaracja
             if (String.IsNullOrEmpty(ulica_inp.Text))
             {
                 ulica_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -345,6 +236,7 @@ namespace Deklaracja
             if (kod_mskd_input.MaskFull == false)
             {
                 kod_mskd_input.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -353,6 +245,7 @@ namespace Deklaracja
             if (String.IsNullOrEmpty(poczta_inp.Text))
             {
                 poczta_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
@@ -362,19 +255,82 @@ namespace Deklaracja
             if (String.IsNullOrEmpty(telefon_inp.Text))
             {
                 telefon_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
                 telefon_inp.BackColor = Color.Green;
             }
             //mail
-            if (String.IsNullOrEmpty(mail_inp.Text) && !mail_inp.Text.Contains("@"))
+            if (String.IsNullOrEmpty(mail_inp.Text) || mail_inp.Text.Contains("@")==false || (String.IsNullOrEmpty(mail_inp.Text) && mail_inp.Text.Contains("@") == false))
             {
                 mail_inp.BackColor = Color.Red;
+                puste++;
             }
             else
             {
                 mail_inp.BackColor = Color.Green;
+            }
+            //if(true)
+            if(puste == 0)
+            {
+                textBox1.Clear();
+                var przystêpowanie = "";
+                var czesc = "";
+                var zawod = "";
+                var symbol = "";
+                if (pierwszy_radiobox.Checked == true)
+                {
+                    przystêpowanie = "po raz pierwszy";
+                }
+                else
+                {
+                    przystêpowanie = "po raz kolejny";
+                }
+                if(pisemnej_chckbox.Checked == true)
+                {
+                    czesc = "pisemnej";
+
+                }else if(pisemnej_chckbox.Checked == true && praktycznej_chckbox.Checked == true)
+                {
+                    czesc = "praktycznej i pisemnej";
+                }
+                else
+                {
+                    czesc = "praktycznej";
+                }
+                
+                if(prg_radiobox.Checked == true)
+                {
+                    zawod = "programista";
+                    symbol = "351406";
+                }
+                else
+                {
+                    zawod = "informatyk";
+                    symbol = "351203";
+                }
+                
+                textBox1.Text = 
+                    "Deklarujê przyst¹pienie do egzaminu potwierdzaj¹cego kwalifikacje w zawodzie przeprowadzonego w terminie "+ dec_cmbbox.Text.ToString()+ System.Environment.NewLine+ System.Environment.NewLine +
+                    "Dane osobowe ucznia:"+ System.Environment.NewLine +
+                    "Nazwisko:      "+ nazwisko_inp.Text.ToString() + System.Environment.NewLine +
+                    "Imiê(imiona):      " + imie_inp.Text.ToString() + System.Environment.NewLine +
+                    "Data i miejsce urodzenia:      " + ur_masked_inp.Text.ToString() +"  "+ miejsce_ur_inp.Text.ToString() + System.Environment.NewLine +
+                    "Numer PESEL:      " + pesel_inp.Text.ToString() + System.Environment.NewLine + System.Environment.NewLine +
+                    "Adres Korespondencyjny:   "+ System.Environment.NewLine +
+                    "Miejscowoœæ:      " + miejsowosc_inp.Text.ToString() + System.Environment.NewLine +
+                    "Ulica i numer domu:      " + ulica_inp.Text.ToString() + System.Environment.NewLine +
+                    "Kod pocztowy i poczta:      " + kod_mskd_input.Text.ToString()+", "+ poczta_inp.Text.ToString() + System.Environment.NewLine +
+                    "Numer telefonu z kierunkowym:      " +"+48 " +telefon_inp.Text.ToString() + System.Environment.NewLine +
+                    "Email :      " + mail_inp.Text.ToString() + System.Environment.NewLine + System.Environment.NewLine +
+                    "Deklarujê przyst¹pienie do egzaminu "+przystêpowanie+" do czêœci "+ czesc + System.Environment.NewLine + System.Environment.NewLine +
+                    "Oznaczenie kwalyfikacji zgodne z podstaw¹ programow¹: "+ cmb_INF.Text.ToString()+"."+ System.Environment.NewLine+
+                    "Nazwa kwalyfikacji: "+ projektowanie_lbl.Text.ToString()+ System.Environment.NewLine + System.Environment.NewLine +
+                    "Symbol cyfrowy zawodu: "+ symbol+ System.Environment.NewLine+
+                    "Zawód: "+zawod
+                    ;
+               
             }
         }
 
@@ -410,18 +366,34 @@ namespace Deklaracja
 
         private void zapisz_btn_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            textBox1.Text+=nazwisko_inp.Text.ToString();
-            textBox1.Text += imie_inp.Text.ToString();
-            textBox1.Text += ur_masked_inp.Text.ToString();
-            textBox1.Text += miejsce_ur_inp.Text.ToString();
-            textBox1.Text += pesel_inp.Text.ToString();
-            textBox1.Text += miejsowosc_inp.Text.ToString();
-            textBox1.Text += ulica_inp.Text.ToString();
-            textBox1.Text += kod_mskd_input.Text.ToString();
-            textBox1.Text += poczta_inp.Text.ToString();
-            textBox1.Text += telefon_inp.Text.ToString();
-            textBox1.Text += mail_inp.Text.ToString();
+            TextWriter txt = new StreamWriter("C:\\Users\\oktaw\\Downloads\\demo.txt");
+            txt.Write(textBox1.Text);
+            txt.Close();
+        }
+
+        private void ur_masked_inp_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            ur_masked_inp.BackColor = Color.White;
+        }
+
+        private void pesel_inp_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            pesel_inp.BackColor = Color.White;
+        }
+
+        private void kod_mskd_input_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            kod_mskd_input.BackColor = Color.White;
+        }
+
+        private void telefon_inp_TextChanged(object sender, EventArgs e)
+        {
+            telefon_inp.BackColor = Color.White;
+        }
+
+        private void mail_inp_TextChanged(object sender, EventArgs e)
+        {
+            mail_inp.BackColor = Color.White;
         }
     }
 }
