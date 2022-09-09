@@ -46,7 +46,6 @@
             this.mail_lbl = new System.Windows.Forms.Label();
             this.poczta_inp = new System.Windows.Forms.TextBox();
             this.miejsowosc_inp = new System.Windows.Forms.TextBox();
-            this.telefon_inp = new System.Windows.Forms.TextBox();
             this.ulica_inp = new System.Windows.Forms.TextBox();
             this.telefon_lbl = new System.Windows.Forms.Label();
             this.poczta_lbl = new System.Windows.Forms.Label();
@@ -69,6 +68,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmb_numer = new System.Windows.Forms.ComboBox();
+            this.telefon_inp = new System.Windows.Forms.MaskedTextBox();
             this.uczen_dane_grpbox.SuspendLayout();
             this.adres_kor_grpbox.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -190,12 +191,13 @@
             // 
             // adres_kor_grpbox
             // 
+            this.adres_kor_grpbox.Controls.Add(this.telefon_inp);
+            this.adres_kor_grpbox.Controls.Add(this.cmb_numer);
             this.adres_kor_grpbox.Controls.Add(this.kod_mskd_input);
             this.adres_kor_grpbox.Controls.Add(this.mail_inp);
             this.adres_kor_grpbox.Controls.Add(this.mail_lbl);
             this.adres_kor_grpbox.Controls.Add(this.poczta_inp);
             this.adres_kor_grpbox.Controls.Add(this.miejsowosc_inp);
-            this.adres_kor_grpbox.Controls.Add(this.telefon_inp);
             this.adres_kor_grpbox.Controls.Add(this.ulica_inp);
             this.adres_kor_grpbox.Controls.Add(this.telefon_lbl);
             this.adres_kor_grpbox.Controls.Add(this.poczta_lbl);
@@ -251,14 +253,6 @@
             this.miejsowosc_inp.Size = new System.Drawing.Size(346, 27);
             this.miejsowosc_inp.TabIndex = 7;
             this.miejsowosc_inp.TextChanged += new System.EventHandler(this.miejsowosc_inp_TextChanged);
-            // 
-            // telefon_inp
-            // 
-            this.telefon_inp.Location = new System.Drawing.Point(231, 124);
-            this.telefon_inp.Name = "telefon_inp";
-            this.telefon_inp.Size = new System.Drawing.Size(148, 27);
-            this.telefon_inp.TabIndex = 6;
-            this.telefon_inp.TextChanged += new System.EventHandler(this.telefon_inp_TextChanged);
             // 
             // ulica_inp
             // 
@@ -490,6 +484,26 @@
             this.panel2.TabIndex = 26;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // cmb_numer
+            // 
+            this.cmb_numer.FormattingEnabled = true;
+            this.cmb_numer.Items.AddRange(new object[] {
+            "Mobilny",
+            "Stacjonarny"});
+            this.cmb_numer.Location = new System.Drawing.Point(231, 125);
+            this.cmb_numer.Name = "cmb_numer";
+            this.cmb_numer.Size = new System.Drawing.Size(38, 28);
+            this.cmb_numer.TabIndex = 27;
+            this.cmb_numer.SelectedIndexChanged += new System.EventHandler(this.cmb_numer_SelectedIndexChanged);
+            // 
+            // telefon_inp
+            // 
+            this.telefon_inp.Location = new System.Drawing.Point(274, 125);
+            this.telefon_inp.Mask = "+00 0000000";
+            this.telefon_inp.Name = "telefon_inp";
+            this.telefon_inp.Size = new System.Drawing.Size(110, 27);
+            this.telefon_inp.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -545,7 +559,6 @@
         private Label mail_lbl;
         private TextBox poczta_inp;
         private TextBox miejsowosc_inp;
-        private TextBox telefon_inp;
         private TextBox ulica_inp;
         private Label telefon_lbl;
         private Label poczta_lbl;
@@ -571,5 +584,7 @@
         private MaskedTextBox kod_mskd_input;
         private MaskedTextBox pesel_inp;
         private MaskedTextBox ur_masked_inp;
+        private MaskedTextBox telefon_inp;
+        private ComboBox cmb_numer;
     }
 }

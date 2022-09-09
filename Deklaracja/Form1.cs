@@ -279,6 +279,7 @@ namespace Deklaracja
                 var czesc = "";
                 var zawod = "";
                 var symbol = "";
+                var numer = "";
                 if (pierwszy_radiobox.Checked == true)
                 {
                     przystêpowanie = "po raz pierwszy";
@@ -310,6 +311,15 @@ namespace Deklaracja
                     zawod = "informatyk";
                     symbol = "351203";
                 }
+
+                if(cmb_numer.SelectedIndex == 0)
+                {
+                    numer = "+48";
+                }
+                else
+                {
+                    numer = "";
+                }
                 
                 textBox1.Text = 
                     "Deklarujê przyst¹pienie do egzaminu potwierdzaj¹cego kwalifikacje w zawodzie przeprowadzonego w terminie "+ dec_cmbbox.Text.ToString()+ System.Environment.NewLine+ System.Environment.NewLine +
@@ -322,7 +332,7 @@ namespace Deklaracja
                     "Miejscowoœæ:      " + miejsowosc_inp.Text.ToString() + System.Environment.NewLine +
                     "Ulica i numer domu:      " + ulica_inp.Text.ToString() + System.Environment.NewLine +
                     "Kod pocztowy i poczta:      " + kod_mskd_input.Text.ToString()+", "+ poczta_inp.Text.ToString() + System.Environment.NewLine +
-                    "Numer telefonu z kierunkowym:      " +"+48 " +telefon_inp.Text.ToString() + System.Environment.NewLine +
+                    "Numer telefonu z kierunkowym:      " +numer +telefon_inp.Text.ToString() + System.Environment.NewLine +
                     "Email :      " + mail_inp.Text.ToString() + System.Environment.NewLine + System.Environment.NewLine +
                     "Deklarujê przyst¹pienie do egzaminu "+przystêpowanie+" do czêœci "+ czesc + System.Environment.NewLine + System.Environment.NewLine +
                     "Oznaczenie kwalyfikacji zgodne z podstaw¹ programow¹: "+ cmb_INF.Text.ToString()+"."+ System.Environment.NewLine+
@@ -394,6 +404,18 @@ namespace Deklaracja
         private void mail_inp_TextChanged(object sender, EventArgs e)
         {
             mail_inp.BackColor = Color.White;
+        }
+
+        private void cmb_numer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmb_numer.SelectedIndex == 0)
+            {
+                telefon_inp.Mask = "000-000-000";
+            }
+            else
+            {
+                telefon_inp.Mask = "+00 0000000";
+            }
         }
     }
 }
